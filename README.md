@@ -2,17 +2,24 @@
 ## Heap
 * skyline.cpp
 ## Binary-Search-Tree
-* Red-Black-Tree: rbtree.cpp
+### Red-Black-Tree
+* `template` rbtree.cpp
 ## Monotonic Queue
-## Range-Minimum-Query(RMQ)
+* `template` mqueue.cpp
+* prob239.cpp
+## Range/Interval
 ### [Segment Tree](https://cp-algorithms.com/data_structures/segment_tree.html): divide & conquer algorithm.
-* array-based fixed range-sum: segtree.cpp
+* `template` array-based fixed range-sum: segtree.cpp
+* `template` fixed RMQ: rmq.cpp
 * dynamic range-query: range-module.cpp 
-### Suffix Array
+### Interval tree
+* `template` interval_tree.cpp
+### Binary Indexed Tree(BIT)
+* `template`: bit.cpp
 * prob307-2.cpp, prob-308-bit.cpp
 ---
 # Graph
-## Disjoint Set
+## Disjoint Set or Union-Find Algorithm
 ## Dijkstra (greedy)
 ## LCA on tree
 * Recursive solution
@@ -27,3 +34,13 @@
 ---
 # String
 ## Trie
+
+# Miscellaneous
+## [faster IO](https://stackoverflow.com/questions/31162367/significance-of-ios-basesync-with-stdiofalse-cin-tienull): disable the synchronization between stdio and c++ stream library; untie cin from cout.
+```cpp
+int speed_up = []{
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);cout.tie(NULL);
+    return 0;
+}();
+```
