@@ -35,6 +35,9 @@
 # String
 ## Trie
 
+# Compiler
+* Linear Scan Register Allocation: meetingRoom2.cpp
+
 # Miscellaneous
 ## [faster IO](https://stackoverflow.com/questions/31162367/significance-of-ios-basesync-with-stdiofalse-cin-tienull): disable the synchronization between stdio and c++ stream library; untie cin from cout.
 ```cpp
