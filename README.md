@@ -31,6 +31,7 @@
 ---
 # Dynamic programming
 * LCS: longest_common_subsequence.cpp
+* partition_equal_subset_sum: using std::optional as memoization
 ---
 # String
 ## Trie
