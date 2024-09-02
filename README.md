@@ -4,7 +4,10 @@
 ## Binary-Search-Tree
 ### Red-Black-Tree
 * `template` rbtree.cpp
-## Monotonic Queue
+## Qsort/Qselect
+## Monotonic Queue/Stack
+The key is to maintain monotone for one property of the elements in the container. We could use it as a queue or stack.
+it is particularly handy when we implement some linear algorithms such as sliding window.
 * `template` mqueue.cpp
 * prob239.cpp
 ## Range/Interval
@@ -17,10 +20,12 @@
 ### Binary Indexed Tree(BIT)
 * `template`: bit.cpp
 * prob307-2.cpp, prob-308-bit.cpp
+## Disjoint Set or Union-Find Algorithm
+islands2.cpp
 ---
 # Graph
-## Disjoint Set or Union-Find Algorithm
 ## Dijkstra (greedy)
+## Bellman-Ford
 ## LCA on tree
 * Recursive solution
 * Euler tour + RMQ
