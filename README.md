@@ -1,6 +1,20 @@
 # Data Structure
-## Heap
+## Priority Queue
 * skyline.cpp
+### variants
+Index priority queue, or IndexPQ adds another level of indirection.
+It provides a heapified vector. It allows to adjust items which have already been in the priority queue. One example is [indexedMinPQ](https://algs4.cs.princeton.edu/24pq/IndexMinPQ.java.html)
+
+Modifier:
+```cpp
+insert(int idx, Item item)->void
+change(int idx, Item item)->void
+```
+Accessors:
+```cpp
+top()->idx
+operator[](int k)->Item
+```
 ## Binary-Search-Tree
 ### Red-Black-Tree
 * `template` rbtree.cpp
@@ -21,11 +35,21 @@ it is particularly handy when we implement some linear algorithms such as slidin
 * `template`: bit.cpp
 * prob307-2.cpp, prob-308-bit.cpp
 ## Disjoint Set or Union-Find Algorithm
-islands2.cpp
+* islands2.cpp
 ---
 # Graph
-## Dijkstra (greedy)
-## Bellman-Ford
+## Single-Point-Shortest-Path
+### Dijkstra
+In the nutshell, Dijkstra is same as Prim's. Prim's is greedy with the spanning tree. Dijkstra's generates SPT(Single-Point-Tree) with relaxing operation.
+* prob1514-dijkstra.cpp
+### Bellman-Ford
+
+### Summary
+| Contain negative weight | Acyclic | Algorithm            | Time-complexity |   |
+|-----------------|---------|----------------------|-----------------|---|
+|                 |         | Bellman-Ford         | EV              |   |
+| no              |         | Dijkstra             | ElogV (binary heap)      |   |
+|                 | yes     | relax in topological order | E + V           |   |
 ## LCA on tree
 * Recursive solution
 * Euler tour + RMQ
