@@ -1,7 +1,8 @@
 #ifndef __LEETCODE_HPP__
 #define __LEETCODE_HPP__
-// iostream
+// io and stream
 #include <iostream>
+#include <sstream>
 
 //string
 #include <string>
