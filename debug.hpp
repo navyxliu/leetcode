@@ -3,6 +3,9 @@
 
 #define dbg (std::cerr)
 
+// forward declaration
+class TreeNode;
+
 #define PRINT(var) \
     dbg << #var << " = " << pp(var) << '\n';
 

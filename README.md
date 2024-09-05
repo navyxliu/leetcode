@@ -15,8 +15,11 @@ Accessors:
 top()->idx
 operator[](int k)->Item
 ```
-## Binary-Search-Tree
-### Red-Black-Tree
+## Binary Tree
+### Morris preorder traversal 
+* sum_root_to_leaf_sum.cpp
+### Binary Search Tree
+#### Red-Black-Tree
 * `template` rbtree.cpp
 ## Qsort/Qselect
 ## Monotonic Queue/Stack
