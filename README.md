@@ -15,8 +15,16 @@ Accessors:
 top()->idx
 operator[](int k)->Item
 ```
-## Binary Tree
+## Tree
+### BFS
+[2 passes of BFS can determine the diameter of a tree](https://leetcode.com/problems/tree-diameter/editorial/#approach-1-farthest-nodes-via-bfs).
+### DFS
 ### Morris preorder traversal 
+Morris is a variant of DFS. Conventional DFS is O(N) space complexity because of stack. Morris exploits the right-most TreeNode's right pointer, which is supposed to be null anyway.
+The rightmost node is refered to as 'predecessor'. prodecessor.light roles as a signal light.
+1) for the 1st time we encounter it, set it to the successor, turn left.
+2) for the 1nd time we encounter it, recover it back to null and turn right.
+It's noteworthy this isn't free. Morris's has to identify 'predecessor' at most twice. The total time complexity is still O(N) though.
 * sum_root_to_leaf_sum.cpp
 ### Binary Search Tree
 #### Red-Black-Tree
