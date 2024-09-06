@@ -1,13 +1,12 @@
 #ifndef __DEBUG_HPP__
 #define __DEBUG_HPP__
 
-#define dbg (std::cout)
-
 // forward declaration
 class TreeNode;
+extern std::ostream* dbg;
 
 #define PRINT(var) \
-    dbg << #var << " = " << pp(var) << '\n';
+    *dbg << #var << " = " << pp(var) << '\n';
 
 template <class T>
 const T& pp(const T& t) {
@@ -31,4 +30,7 @@ std::string pp(const std::vector<T>& vec) {
     return ss.str();
 }
 
+
+void set_dbg(std::ostream& console);
+void reset_dbg();
 #endif // __DEBUG_HPP__
