@@ -1,7 +1,7 @@
 #ifndef __DEBUG_HPP__
 #define __DEBUG_HPP__
 
-#define dbg (std::cerr)
+#define dbg (std::cout)
 
 // forward declaration
 class TreeNode;

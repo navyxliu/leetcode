@@ -76,6 +76,10 @@ In the nutshell, Dijkstra is same as Prim's. Prim's is greedy with the spanning 
 # String
 ## Trie
 
+# Random Alglrithm
+## Reservoir sampling
+* sampling.cpp
+
 # Compiler
 * Linear Scan Register Allocation: meetingRoom2.cpp
 
