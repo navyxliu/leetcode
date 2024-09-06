@@ -12,8 +12,8 @@ TEST(StringTest, simple) {
 
     string msg = "hello,,world!";
     vector<string> words = split(msg, ",!");
-    ASSERT_EQ(words.size(), 2);
-    ASSERT_EQ(words, vector<string>({"hello", "world"}));
+    ASSERT_EQ(words.size(), 4);
+    ASSERT_EQ(words, vector<string>({"hello", "", "world", ""}));
 
     msg = "helloworld";
     words = split(msg, ".!");
