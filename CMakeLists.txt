@@ -26,7 +26,7 @@ target_compile_options(compiler_flags INTERFACE
 add_subdirectory("leetcode")
 
 # executable
-add_executable(prob129 sum_root_to_leaf_num.cpp)
+add_executable(prob129 probs/sum_root_to_leaf_num.cpp)
 target_link_libraries(prob129 PUBLIC leetcode compiler_flags)
 target_include_directories(prob129 PUBLIC
                           "${PROJECT_BINARY_DIR}")
