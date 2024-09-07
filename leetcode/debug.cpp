@@ -1,11 +1,11 @@
 #include <iostream>
 #include <ostream>
 
-std::ostream* dbg = &std::cout;
+std::ostream* __dbg = nullptr;
 
 void set_dbg(std::ostream& console) {
-    dbg = &console;
+    __dbg = &console;
 }
 void reset_dbg() {
-    dbg = &std::cout;
+    __dbg = nullptr;
 }

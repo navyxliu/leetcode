@@ -2,11 +2,12 @@
 #define __DEBUG_HPP__
 
 // forward declaration
-class TreeNode;
-extern std::ostream* dbg;
+extern std::ostream* __dbg;
+
+#define dbg  (__dbg != nullptr ? (*__dbg) : (std::cout))
 
 #define PRINT(var) \
-    *dbg << #var << " = " << pp(var) << '\n';
+    dbg << #var << " = " << pp(var) << '\n';
 
 template <class T>
 const T& pp(const T& t) {

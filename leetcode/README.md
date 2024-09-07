@@ -1,3 +1,8 @@
+# What is C++ missing for leetcoder?
+* range lacks python-like enumerate() https://github.com/Reedbeta/nrr_enumerate
+* generic memoization https://github.com/jimporter/memo?tab=readme-ov-file
+* pair/tuple doesn't support std::hash https://www.linkedin.com/pulse/generic-tuple-hashing-modern-c-alex-dathskovsky/
+
 # Miscellaneous
 ## [faster IO](https://stackoverflow.com/questions/31162367/significance-of-ios-basesync-with-stdiofalse-cin-tienull): disable the synchronization between stdio and c++ stream library; untie cin from cout.
 ```cpp
