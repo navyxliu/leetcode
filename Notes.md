@@ -54,13 +54,17 @@ it is particularly handy when we implement some linear algorithms such as slidin
 In the nutshell, Dijkstra is same as Prim's. Prim's is greedy with the spanning tree. Dijkstra's generates SPT(Single-Point-Tree) with relaxing operation.
 * prob1514-dijkstra.cpp
 ### Bellman-Ford
+## DAG algorithm
+By definition, DAG doesn't contain any cycle. The algorithm just relax vertices in topological order.
+This approach is straight-forward and can solve both the shortest path and the longest path.
+To discover the longest path, we just negate all weights of edges.
 
 ### Summary
 | Contain negative weight | Acyclic | Algorithm            | Time-complexity |   |
 |-----------------|---------|----------------------|-----------------|---|
 |                 |         | Bellman-Ford         | EV              |   |
 | no              |         | Dijkstra             | ElogV (binary heap)      |   |
-|                 | yes     | relax in topological order | E + V           |   |
+|                 | yes     | DAG | EV           |   |
 ## LCA on tree
 * Recursive solution
 * Euler tour + RMQ
