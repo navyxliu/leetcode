@@ -72,7 +72,83 @@ To discover the longest path, we just negate all weights of edges.
 ## Topological order
 * DFS
 * in-degree
----
+## Cycle Detection
+Floyd's Tortoise and Hare Algorithm
+
+# Binary Search
+Binary search is an algorithm. The basic idea is that we half the search space in each trial.
+We must forget about a general template to solve all problems. It doesn't exist like other algorithms.
+
+The trick is we need to tell whether we inspect its neighbors during binary searching.
+If we don't have any interaction with its neighters, we could use Template-I:
+```cpp
+int binarySearch(vector<int>& nums, int target){
+  int left = 0, right = nums.size() - 1;
+  while(left <= right){
+    // Prevent (left + right) overflow
+    int mid = left + (right - left) / 2;
+    if(nums[mid] == target){ return mid; }
+    else if(nums[mid] < target) { left = mid + 1; }
+    else { right = mid - 1; }
+  }
+
+  // End Condition: left > right
+  return -1;
+}
+```
+Sometimes, we do need to include the midpoint in a search sub-space. eg. we want to search the 1st element that is greater or equal(>=) to the target in an integer arry. We should go with Template-II. A mistep of template-I is that we end up with an inifinite loop for some data.
+
+```cpp
+if (nums.size() == 0) {
+    return -1;
+}
+
+int lo = 0;
+int hi = nums.size()-1;
+while (lo < hi) {  // we must use < here. It ensures that there're at least 2 elements in the search space.
+                   // we we use <= here, then there's only one element in the last search space.
+                   // If controlflow takes hi = mid, it will not shrink the search space!
+                   // try nums[1, 2] and target == 1
+    int mid  = lo + (hi-lo)/2;
+    if (nums[mid] < target) { // we are looking >= target, we can ditch the entire left space.
+        lo = mid+1;
+    } else {                  // now nums[mid] >= target, we have to retain 'mid' here.
+        hi = mid;
+    }
+}
+// post-process num[lo]. this handles the only corner case: only 1 element left.
+return lo;
+```
+
+Last, it's possible that both left and right sub-spaces include the midpoint. if so, we use template-III.
+```cpp
+int binarySearch(vector<int>& nums, int target){
+    if (nums.size() == 0)
+        return -1;
+
+    int left = 0, right = nums.size() - 1;
+    while (left + 1 < right){           // by writing this, it guarantes that there are at least 3 elements in the search space.
+        int mid = left + (right - left) / 2;
+        if (nums[mid] == target) {
+            return mid;
+        } else if (nums[mid] < target) {// ditch [mid+1, high]
+            left = mid;
+        } else {                        // ditch [lo, mid-1]
+            right = mid;
+        }
+    }
+
+    // Post-processing: we have to handle two corner cases: 1 element or 2 elements.
+    // End Condition: left + 1 == right
+    if(nums[left] == target) return left;
+    if(nums[right] == target) return right;
+    return -1;
+}
+```
+The easiest way of using binary search is to invoke the procedures defined in <algorithm>. It has a constraint: they only work with a concret sorted range. We can't perform binary search on a virtual space. If we want to use custom comparator such as greater, we need to ensure that range [Begin, End) is ordered according to the comparator.
+* lower_bound: return the 1st element that is >= __value
+* upper_bound: return the 1st element that is > __value
+
 # Dynamic programming
 * LCS: longest_common_subsequence.cpp
 * partition_equal_subset_sum: using std::optional as memoization
