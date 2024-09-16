@@ -15,3 +15,15 @@ split(std::string s, const char* delimiters) {
     ans.push_back(s.substr(p));
     return ans;
 }
+#if __cplusplus >= 202002L
+#include <ranges>
+
+std::vector<string_view>
+split_view(std::string s, char delimiter) {
+    std::vector<string_view> ans;
+    for (const auto &sub: string_view{s} | std::ranges::views::split(delimiter)) {
+        ans.push_back(string_view{sub.begin(), sub.end()});
+    }
+    return ans;
+}
+#endif
