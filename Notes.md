@@ -67,11 +67,12 @@ To discover the longest path, we just negate all weights of edges.
 |                 | yes     | DAG | EV           |   |
 ## LCA on tree
 ### Recursive solution
+* prob236-lca.cpp
 ### Euler tour + RMQ
 ### Binary lifting
 ### Two pointers
 Each node requires to contain its parent pointer. Comparing to hashtable solution, this trick has O(1) space complexity.
-* prob-1650-lca.cpp
+* prob1650-lca.cpp
 ## Topological order
 * DFS
 * in-degree
