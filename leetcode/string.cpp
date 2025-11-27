@@ -19,7 +19,7 @@ split(std::string s, const char* delimiters) {
 #include <ranges>
 
 std::vector<string_view>
-split_view(std::string s, char delimiter) {
+split_view(const std::string& s, char delimiter) {
     std::vector<string_view> ans;
     for (const auto &sub: string_view{s} | std::ranges::views::split(delimiter)) {
         ans.push_back(string_view{sub.begin(), sub.end()});

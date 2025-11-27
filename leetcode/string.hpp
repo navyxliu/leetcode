@@ -9,6 +9,6 @@ std::vector<std::string> split(std::string s, const char* delimiters);
 using std::string_view;
 
 std::vector<string_view>
-split_view(std::string s, char delimiter);
+split_view(const std::string& s, char delimiter);
 #endif
 #endif /*__STRING_HPP__*/
