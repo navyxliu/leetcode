@@ -51,8 +51,14 @@ it is particularly handy when we implement some linear algorithms such as slidin
 # Graph
 ## Single-Point-Shortest-Path
 ### Dijkstra
-In the nutshell, Dijkstra is same as Prim's. Prim's is greedy with the spanning tree. Dijkstra's generates SPT(Single-Point-Tree) with relaxing operation.
-* prob1514-dijkstra.cpp
+In a nutshell, Dijkstra is same as Prim's. Prim's is greedy with the spanning tree. Dijkstra's generates SPT(Single-Point-Tree) with the relaxing operation.
+* [prob1514-dijkstra.cpp](./probs/prob1514-dijkstra.cpp)
+### A*
+A* is Dijkstra with a heuristic function. One drawback of dijkstra is too greedy from perspective of source.
+f(n) = g(n) + h(n) where g is distance discovered and h is heuristic cost. h guides the discover path toward the destination.
+
+Admissiblity: never overeastimate!
+use Manhattan distance or Euclidean distance.
 ### Bellman-Ford
 ## DAG algorithm
 By definition, DAG doesn't contain any cycle. The algorithm just relax vertices in topological order.
