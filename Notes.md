@@ -86,11 +86,11 @@ Each node requires to contain its parent pointer. Comparing to hashtable solutio
 Floyd's Tortoise and Hare Algorithm
 
 # Binary Search
-Binary search is an algorithm. The basic idea is that we half the search space in each trial.
-We must forget about a general template to solve all problems. It doesn't exist like other algorithms.
+Binary search is an algorithm. The basic idea is that we half the searching space after each trial.
+There's no generic template to solve all binary search problems.
 
-The trick is we need to tell whether we inspect its neighbors during binary searching.
-If we don't have any interaction with its neighters, we could use Template-I:
+The trick is we need to know whether we need to inspect its neighbors during binary searching.
+If we don't have any interaction with its neighbors, it's safe to use Template-I:
 ```cpp
 int binarySearch(vector<int>& nums, int target){
   int left = 0, right = nums.size() - 1;
@@ -106,7 +106,8 @@ int binarySearch(vector<int>& nums, int target){
   return -1;
 }
 ```
-Sometimes, we do need to include the midpoint in a search sub-space. eg. we want to search the 1st element that is greater or equal(>=) to the target in an integer arry. We should go with Template-II. A mistep of template-I is that we end up with an inifinite loop for some data.
+Sometimes, we do need to include the midpoint in a search sub-space. eg. we want to find the 1st element that is greater or equal(>=) than the target in a sorted integer array. We should go with Template-II. 
+template-I doesn't work here because it may end up with an infinite loop for some data. >= is refered as "upper_bound". 
 
 ```cpp
 if (nums.size() == 0) {
@@ -116,11 +117,11 @@ if (nums.size() == 0) {
 int lo = 0;
 int hi = nums.size()-1;
 while (lo < hi) {  // we must use < here. It ensures that there're at least 2 elements in the search space.
-                   // we we use <= here, then there's only one element in the last search space.
-                   // If controlflow takes hi = mid, it will not shrink the search space!
-                   // try nums[1, 2] and target == 1
+                   // If we use <= here, then there's only one element in the last search space.
+                   // If control flow takes hi = mid, it will not shrink the search space!
+                   // try nums[1, 2] and target == 1!
     int mid  = lo + (hi-lo)/2;
-    if (nums[mid] < target) { // we are looking >= target, we can ditch the entire left space.
+    if (nums[mid] < target) { // we are looking for >= target, we can ditch the entire left space.
         lo = mid+1;
     } else {                  // now nums[mid] >= target, we have to retain 'mid' here.
         hi = mid;
@@ -130,14 +131,11 @@ while (lo < hi) {  // we must use < here. It ensures that there're at least 2 el
 return lo;
 ```
 
-Last, it's possible that both left and right sub-spaces include the midpoint. if so, we use template-III.
+Last, it is possible that both left and right sub-spaces we decide  include the midpoint. if so, we use template-III:
 ```cpp
 int binarySearch(vector<int>& nums, int target){
-    if (nums.size() == 0)
-        return -1;
-
     int left = 0, right = nums.size() - 1;
-    while (left + 1 < right){           // by writing this, it guarantes that there are at least 3 elements in the search space.
+    while (left + 1 < right){           // by using template-3, it guarantees that there are at least 3 elements in the search space.
         int mid = left + (right - left) / 2;
         if (nums[mid] == target) {
             return mid;
@@ -155,7 +153,7 @@ int binarySearch(vector<int>& nums, int target){
     return -1;
 }
 ```
-The easiest way of using binary search is to invoke the procedures defined in <algorithm>. It has a constraint: they only work with a concret sorted range. We can't perform binary search on a virtual space. If we want to use custom comparator such as greater, we need to ensure that range [Begin, End) is ordered according to the comparator.
+The easiest way of using binary search is to invoke the procedures defined in <algorithm>. It has a constraint: they only work with a concrete sorted range. We can't perform binary search on a virtual space. If we want to use custom comparator such as greater, we need to ensure that range [Begin, End) is ordered according to the comparator.
 * lower_bound: return the 1st element that is >= __value
 * upper_bound: return the 1st element that is > __value
 
